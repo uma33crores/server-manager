@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx vite",
+    "dev": "node node_modules/vite/bin/vite.js",
     "dev:backend": "cd backend && npm run dev",
-    "build": "npx vite build",
-    "lint": "npx eslint .",
-    "preview": "npx vite preview",
-    "typecheck": "npx tsc --noEmit -p tsconfig.app.json"
+    "build": "node node_modules/vite/bin/vite.js build",
+    "lint": "node node_modules/eslint/bin/eslint.js .",
+    "preview": "node node_modules/vite/bin/vite.js preview",
+    "typecheck": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.app.json"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",

@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tsx watch src/index.ts",
-    "start": "npx tsx src/index.ts",
-    "build": "npx tsc",
-    "typecheck": "npx tsc --noEmit"
+    "dev": "node node_modules/tsx/dist/cli.mjs watch src/index.ts",
+    "start": "node node_modules/tsx/dist/cli.mjs src/index.ts",
+    "build": "node node_modules/typescript/bin/tsc",
+    "typecheck": "node node_modules/typescript/bin/tsc --noEmit"
   },
   "keywords": [],
   "author": "",
