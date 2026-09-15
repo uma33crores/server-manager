@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme (default) */
+    --color-surface: 248 250 252;          /* slate-50 */
+    --color-surface-hover: 241 245 249;     /* slate-100 */
+    --color-surface-2: 255 255 255;          /* white */
+    --color-border: 226 232 240;            /* slate-200 */
+    --color-border-hover: 203 213 225;      /* slate-300 */
+    --color-text-primary: 15 23 42;         /* slate-900 */
+    --color-text-secondary: 51 65 85;       /* slate-700 */
+    --color-text-muted: 100 116 139;        /* slate-500 */
+    --color-text-faint: 148 163 184;        /* slate-400 */
+    --color-code-bg: 241 245 249;           /* slate-100 */
+  }
+
+  .dark {
+    /* Dark theme */
+    --color-surface: 15 23 42;              /* slate-900 */
+    --color-surface-hover: 30 41 59;        /* slate-800 */
+    --color-surface-2: 30 41 59;             /* slate-800 */
+    --color-border: 51 65 85;               /* slate-700 */
+    --color-border-hover: 71 85 105;        /* slate-600 */
+    --color-text-primary: 241 245 249;      /* slate-100 */
+    --color-text-secondary: 203 213 225;    /* slate-300 */
+    --color-text-muted: 148 163 184;        /* slate-400 */
+    --color-text-faint: 100 116 139;       /* slate-500 */
+    --color-code-bg: 15 23 42;              /* slate-900 */
+  }
+
+  body {
+    @apply bg-surface text-text-primary antialiased;
+  }
+
+  h1 { @apply text-2xl font-bold tracking-tight; }
+  h2 { @apply text-lg font-semibold tracking-tight; }
+  h3 { @apply text-sm font-semibold; }
+}
+
+@layer components {
+  /* Forms */
+  .form-input {
+    @apply w-full px-3 py-2 bg-surface-2 border border-border rounded-lg text-text-primary text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500/50 transition-all duration-150;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-text-secondary mb-1.5;
+  }
+
+  .form-hint {
+    @apply text-xs text-text-faint mt-1.5;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-sky-600 hover:bg-sky-500 active:bg-sky-700 text-white rounded-lg text-sm font-medium transition-all duration-150 shadow-sm shadow-sky-600/20;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-surface-2 hover:bg-surface-hover border border-border hover:border-border-hover text-text-secondary rounded-lg text-sm font-medium transition-all duration-150;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-lg text-sm font-medium transition-all duration-150;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 text-text-muted hover:text-text-primary hover:bg-surface-hover rounded-lg text-sm font-medium transition-all duration-150;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-surface-2 border border-border rounded-xl transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply card hover:border-border-hover hover:shadow-md hover:shadow-black/5;
+  }
+
+  .card-header {
+    @apply px-5 py-4 border-b border-border;
+  }
+
+  .card-body {
+    @apply p-5;
+  }
+
+  /* Page header */
+  .page-header {
+    @apply flex items-center justify-between mb-6;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold text-text-primary tracking-tight;
+  }
+
+  .page-subtitle {
+    @apply text-sm text-text-muted mt-1;
+  }
+
+  /* Stat cards */
+  .stat-card {
+    @apply card p-5 flex items-center gap-4;
+  }
+
+  .stat-icon {
+    @apply flex items-center justify-center w-11 h-11 rounded-xl flex-shrink-0;
+  }
+
+  .stat-value {
+    @apply text-2xl font-bold text-text-primary leading-none;
+  }
+
+  .stat-label {
+    @apply text-sm text-text-muted mt-1;
+  }
+
+  /* Tables */
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table thead th {
+    @apply px-5 py-3 text-left font-medium text-text-muted text-xs uppercase tracking-wider border-b border-border bg-surface-hover/50;
+  }
+
+  .data-table tbody tr {
+    @apply border-b border-border transition-colors duration-100;
+  }
+
+  .data-table tbody tr:last-child {
+    @apply border-b-0;
+  }
+
+  .data-table tbody tr:hover {
+    @apply bg-surface-hover/60;
+  }
+
+  .data-table td {
+    @apply px-5 py-3 text-text-secondary;
+  }
+
+  /* Search and filters */
+  .search-input {
+    @apply w-full pl-9 pr-3 py-2 bg-surface-2 border border-border rounded-lg text-sm text-text-primary placeholder:text-text-faint focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500/50 transition-all duration-150;
+  }
+
+  .filter-select {
+    @apply px-3 py-2 bg-surface-2 border border-border rounded-lg text-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500/50 transition-all duration-150 cursor-pointer;
+  }
+
+  /* Badges */
+  .scope-badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-surface-hover text-text-secondary capitalize;
+  }
+
+  .sensitive-badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30;
+  }
+
+  /* Empty state */
+  .empty-state {
+    @apply flex flex-col items-center justify-center py-16 text-center;
+  }
+
+  .empty-state-icon {
+    @apply flex items-center justify-center w-14 h-14 rounded-2xl bg-surface-hover text-text-faint mb-4;
+  }
+
+  /* Section spacing */
+  .section-gap {
+    @apply mt-6;
+  }
+
+  /* Code blocks */
+  .code-block {
+    @apply bg-surface border border-border rounded-lg p-3 text-xs font-mono text-text-muted whitespace-pre-wrap break-all;
+  }
+
+  .code-block-resolved {
+    @apply bg-surface border border-border rounded-lg p-3 text-xs font-mono text-emerald-600 dark:text-emerald-300 whitespace-pre-wrap break-all;
+  }
+
+  /* Info row */
+  .info-row {
+    @apply flex items-center justify-between gap-3 py-2 border-b border-border/60 last:border-0;
+  }
+
+  .info-row-label {
+    @apply text-sm text-text-muted flex-shrink-0;
+  }
+
+  .info-row-value {
+    @apply text-sm text-text-secondary font-medium text-right;
+  }
+
+  /* Tab bar */
+  .tab-bar {
+    @apply flex items-center gap-1 border-b border-border mb-6 overflow-x-auto;
+  }
+
+  .tab-button {
+    @apply flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition-all duration-150 whitespace-nowrap;
+  }
+
+  .tab-button-active {
+    @apply text-sky-600 dark:text-sky-400 border-sky-500;
+  }
+
+  .tab-button-inactive {
+    @apply text-text-muted hover:text-text-secondary border-transparent;
+  }
+
+  /* Alert banners */
+  .alert-error {
+    @apply flex items-center gap-2 text-sm text-red-600 dark:text-red-400 bg-red-500/10 border border-red-500/30 rounded-lg px-4 py-2.5;
+  }
+
+  .alert-success {
+    @apply flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-lg px-4 py-2.5;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-border-hover;
+  }
+}
+
+/* PageLoader animations */
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes loader-blink {
+  0%, 80%, 100% { opacity: 0.2; }
+  40% { opacity: 1; }
+}
+
+@keyframes loader-bar {
+  0%, 100% { transform: scaleX(0.3); opacity: 0.4; }
+  50% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-loader-spin {
+  animation: loader-spin 0.8s linear infinite;
+}
+
+.animate-loader-blink {
+  animation: loader-blink 1.2s ease-in-out infinite;
+}
+
+.animate-loader-bar {
+  animation: loader-bar 1.2s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}

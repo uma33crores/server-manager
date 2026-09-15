@@ -1,0 +1,76 @@
+export const RESERVED_SYSTEM_KEYS = [
+  'PROJECT_NAME',
+  'PROJECT_SLUG',
+  'SERVER_NAME',
+  'SERVER_IP',
+  'ENVIRONMENT',
+  'APP_DIRECTORY',
+  'SUPABASE_DIRECTORY',
+  'SUPABASE_TEMPLATE_DIRECTORY',
+  'COMPOSE_NAME',
+  'PROJECT_SLOT',
+  'API_PORT',
+  'DB_PORT',
+  'POOLER_PORT',
+  'POOLER_TENANT_ID',
+  'APP_DOMAIN',
+  'SUPABASE_DOMAIN',
+  'REPOSITORY_URL',
+  'GIT_BRANCH',
+];
+
+export const SETUP_STEPS = [
+  'Initialize Variables',
+  'Check Server Resources',
+  'Check Assigned Ports',
+  'Verify DNS',
+  'Check Project Does Not Already Exist',
+  'Create Supabase Instance',
+  'Verify Multi-Project Template',
+  'Create Project .env',
+  'Configure Compose Project Name',
+  'Generate Fresh Supabase Secrets',
+  'Configure API, DB and Pooler Ports',
+  'Configure Supabase Studio',
+  'Configure Supabase Public URLs (HTTP)',
+  'Keep DB, Pooler and API Private on Localhost',
+  'Validate Docker Compose',
+  'Pull Supabase Images',
+  'Start Supabase',
+  'Test Supabase Locally',
+  'Get Dashboard Login',
+  'Clone Fresh Frontend Project',
+  'Create Frontend Nginx Config',
+  'Create Supabase Nginx Config',
+  'Test Nginx',
+  'Test HTTP Supabase Routing',
+  'Configure SSL',
+  'Recreate Supabase with HTTPS URLs',
+  'Get Frontend Supabase Key',
+  'Configure Frontend Environment',
+  'Install Frontend Dependencies',
+  'Build Frontend',
+  'Final App Verification',
+  'Verify Project Containers',
+  'Verify Project Ports',
+  'Verify Existing Projects Are Unaffected',
+];
+
+export const CREDENTIAL_TYPES = [
+  'Supabase Dashboard Username',
+  'Supabase Dashboard Password',
+  'Supabase Anon Key',
+  'Supabase Service Role Key',
+  'Postgres Password',
+  'JWT Secret',
+  'SSH Username',
+  'SSH Password',
+  'API Key',
+  'Other',
+];
+
+export const ENVIRONMENTS = ['testing', 'staging', 'production'] as const;
+
+export const PROJECT_STATUSES = ['In Setup', 'Running', 'Stopped', 'Archived'] as const;
+
+export const STEP_STATUSES = ['not_started', 'in_progress', 'completed', 'blocked'] as const;
