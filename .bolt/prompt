@@ -1,7 +1,58 @@
 For all designs I ask you to make, have them be beautiful, not cookie cutter. Make webpages that are fully featured and worthy for production.
 
-By default, this template supports JSX syntax with Tailwind CSS classes, React hooks, and Lucide React for icons. Do not install other packages for UI themes, icons, etc unless absolutely necessary or I request them.
+By default, this template supports JSX syntax with Tailwind CSS classes, React hooks, and Lucide React for icons. Do not install other packages for UI themes, icons, etc. unless absolutely necessary or I request them.
 
-Use icons from lucide-react for logos.
+Use icons from lucide-react for icons/logos wherever appropriate.
 
 Import project modules with the `@/` path alias, which maps to `src/` (e.g. `@/components/Foo` == `src/components/Foo`), instead of deep relative paths like `../../components/Foo`.
+
+
+ENVIRONMENT FILE PROTECTION — CRITICAL
+
+This project uses a manually maintained `.env` file containing important environment variables, API configuration, database configuration, and secrets.
+
+The `.env` file is a protected project file.
+
+Rules:
+
+1. NEVER delete the `.env` file.
+
+2. NEVER overwrite, reset, recreate, rename, or replace the `.env` file.
+
+3. NEVER remove existing environment variables from `.env`.
+
+4. NEVER change any existing `.env` value unless I explicitly ask you to modify that specific environment variable.
+
+5. When fixing bugs, adding features, refactoring, restructuring, updating dependencies, or modifying the project, preserve the existing `.env` file exactly as it is.
+
+6. If a new environment variable is required, tell me exactly which variable needs to be added. Do not replace or remove existing variables.
+
+7. Never expose `.env` values in:
+   - frontend source code
+   - UI
+   - logs
+   - documentation
+   - Git commits
+   - generated files
+   - responses or explanations
+
+8. The `.env` file must remain excluded from Git.
+
+9. If `.gitignore` is created or modified, ensure the following protection remains:
+
+   .env
+   .env.*
+   !.env.example
+
+10. `.env.example` may contain environment variable names and placeholder values only. Never copy real secrets from `.env` into `.env.example`.
+
+11. Never run commands or perform automated cleanup that could delete `.env`.
+
+12. Before performing project-wide changes, migrations, refactoring, Git operations, dependency updates, or file cleanup, treat `.env` as a protected file.
+
+13. If there is any uncertainty about changing `.env`, do not change it. Ask me first.
+
+CRITICAL:
+The existing `.env` configuration must survive every Bolt prompt, code modification, refactor, dependency update, Git operation, and project restructuring.
+
+DO NOT TOUCH `.env` unless I explicitly request a specific change to it.
